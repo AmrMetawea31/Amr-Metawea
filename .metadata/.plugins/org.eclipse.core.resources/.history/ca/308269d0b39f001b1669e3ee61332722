@@ -1,0 +1,26 @@
+package Procedures;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import pageObjects.LoginPage;
+
+
+
+public class LoginProcedures {
+	
+	public static void loginWithUser(RemoteWebDriver driver, String username, String password) throws InterruptedException {
+		
+		LoginPage log = new LoginPage(driver);
+		System.out.println(username);
+		log.setUsername(username);
+//		System.out.println("username done");
+//		loginPage.setPassword(password);
+//		System.out.println("Password done");
+//		loginPage.clickLogin();
+		
+	
+//		Thread.sleep(1000);
+	}
+
+}

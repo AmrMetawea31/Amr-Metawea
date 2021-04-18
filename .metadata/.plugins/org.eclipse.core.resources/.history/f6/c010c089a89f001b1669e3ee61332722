@@ -1,0 +1,83 @@
+package Test;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.DataProvider;
+import java.util.concurrent.TimeUnit;
+
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+import javax.imageio.ImageIO;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import pageObjects.LoginPage;
+import Procedures.LoginProcedures;
+
+public class NewTest {
+	
+	RemoteWebDriver driver;
+	
+	
+  @Test(dataProvider = "getData")
+  public void login(String username, String password) throws InterruptedException, IOException {
+	  LoginProcedures.loginWithUser(driver, username, password);
+  
+	  driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+	  
+//*open the site*
+	  
+      driver.get("https://www.facebook.com");
+      driver.manage().window().maximize();
+  }
+  
+//  @Test(dataProvider = "getData")
+//  public void login(String username, String password) throws InterruptedException, IOException {
+//	  LoginProcedures.loginWithUser(driver, username, password);
+//  }
+  
+  
+  @BeforeClass
+  public void beforeMethod() {
+	  
+	  System.setProperty("webdriver.chrome.driver", "D:\\Selenium Training\\chromedriver.exe");
+
+		 driver=new ChromeDriver();
+		 
+  }
+
+  @AfterClass
+  public void afterMethod() {
+	  
+	  //driver.quit();
+  }
+
+
+  
+  @DataProvider(name="getData")
+  public Object[][] getData(){
+   //Object [][] data = new Object [rowCount][colCount];
+   Object [][] data = new Object [1][1];
+   
+   data [0][0] = "vqhxpmtgdn_1618669026@tfbnw.net";
+   data [0][1] = "MAW123456789";
+   
+   return data;
+}
+}

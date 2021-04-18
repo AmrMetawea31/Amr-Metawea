@@ -1,0 +1,21 @@
+package Procedures;
+
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+
+import pageObjects.RegistrationPage;
+
+public class RegistrationProcedures {
+
+	public static void register(RemoteWebDriver driver, String username, String password) throws InterruptedException {
+		
+		RegistrationPage reg = new RegistrationPage(driver);
+		  login.setUsername(username);
+		  login.setPassword(password);
+		  login.clickLogin();
+
+		
+	
+//		Thread.sleep(1000);
+	}
+}

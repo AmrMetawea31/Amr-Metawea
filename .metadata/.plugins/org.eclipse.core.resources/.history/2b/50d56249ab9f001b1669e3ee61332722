@@ -1,0 +1,28 @@
+package pageObjects;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class LoginPage {
+	
+	RemoteWebDriver driver;
+	
+	WebElement username = driver.findElement(By.id("email"));
+	WebElement password = driver.findElement(By.id("pass"));
+	WebElement loginButton = driver.findElement(By.xpath("//*[@id=u_0_h_hF]"));
+	
+	public void setUsername (String x) {
+		System.out.println("lets enter username");
+
+		username.sendKeys(x);
+	}
+	
+	public void setPassword (String y) {
+		password.sendKeys(y);
+	}
+	
+	public void clickLogin() {
+		loginButton.click();
+	}
+}
